@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 function FileUploader() {
 
-  const [noteContent, setNoteContent] = useState("");
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
 
 
@@ -14,7 +13,6 @@ function FileUploader() {
       return;
     }
     formData.append('file', uploadedFile);
-    formData.append('notes', noteContent);
 
     try {
       fetch('/api/fileHandler', {
@@ -33,7 +31,6 @@ function FileUploader() {
     <>
       <div className={styles.page}>
         <input onChange={(e) => setUploadedFile(e.target.files[0])} type="file" />
-        <input onChange={(e) => setNoteContent(e.target.value)} type="text" placeholder=" notes about this file" />
         <button onClick={() => handleUpload()}>Proccess upload</button>
       </div>
     </>

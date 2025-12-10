@@ -27,12 +27,13 @@ export default function FileViewer() {
       <div className={styles.page}>
         <h1>File Viewer</h1>
         {fileNames ? (
-          <div>
-            <ul>
-              {fileNames.map((name) =>
-                <li key={name}>{name}</li>
-              )}
-            </ul>
+          <div className={styles.fileDisplay}>
+
+            {fileNames.map((name) =>
+              <div key={name}>
+                <button key={name}>Download {name}</button>
+              </div>
+            )}
           </div>
         ) :
           <div>
