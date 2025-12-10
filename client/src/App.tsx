@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div className={styles.page}>
-        <h1>Local FileShare System</h1>
+        <h1>network attatched storage interface</h1>
         <FileUploader></FileUploader>
         <FileViewer></FileViewer>
       </div >

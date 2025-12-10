@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+/* font-family: 'Amatic SC', cursive; */
+
 .page {
   min-height: 60vh;
   min-width: 100vh;
@@ -22,6 +26,8 @@
 
 
 .page button {
+  font-size: 22px;
+  font-weight: 300;
   border-style: double;
   border-width: 5px;
   border-radius: 5px;
