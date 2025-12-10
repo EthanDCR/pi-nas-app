@@ -1,0 +1,28 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: silver;
+
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+
+.page h1 {
+  color: white;
+}
+
+.page h3 {
+  color: white;
+}
+
+.page p {
+  color: white;
+}
