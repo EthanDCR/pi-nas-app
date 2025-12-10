@@ -10,8 +10,9 @@ import (
 func main() {
 	PORT := 8080
 	router := http.NewServeMux()
-	router.HandleFunc("/api/fileHandler", api.FileHandler)
+	router.HandleFunc("/api/uploadHandler", api.FileHandler)
 	router.HandleFunc("/api/getFileNamesHandler", api.SendFileNames)
+	router.HandleFunc("/api/sendFileHandler", api.SendFileToClient)
 
 	fmt.Printf("Listening on port %d\n", PORT)
 	fmt.Println("=======================================================================")

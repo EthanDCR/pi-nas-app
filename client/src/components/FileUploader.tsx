@@ -15,7 +15,7 @@ function FileUploader() {
     formData.append('file', uploadedFile);
 
     try {
-      fetch('/api/fileHandler', {
+      fetch('/api/uploadHandler', {
         method: 'POST',
         body: formData,
       })

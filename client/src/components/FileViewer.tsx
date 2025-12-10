@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../components/fileViewer.module.css"
 
 export default function FileViewer() {
 
   const [fileNames, setFileNames] = useState<string[]>([]);
+  const currentLinkRef = useRef<HTMLAnchorElement | null>(null)
+
+
   const getFileNames = async (fileName: string | null) => {
     if (!fileName) {
       try {
@@ -22,16 +25,42 @@ export default function FileViewer() {
     getFileNames();
   }, []);
 
+
+
+  const getFile = async (fileName: string) => {
+
+    try {
+      const res = await fetch(`/api/sendFileHandler?fileName=${fileName}`)
+      const blob = await res.blob()
+      console.log("got da blob:\n " + blob)
+
+
+      const a = currentLinkRef.current;
+      if (!a) {
+        alert("no anchor element attatched to ref")
+        return
+      }
+      const url = window.URL.createObjectURL(blob);
+      a.href = url;
+      a.download = fileName;
+      a.click()
+      window.URL.revokeObjectURL(url);
+    }
+    catch (err) {
+      console.error(err, "Couldn't fetch file" + fileName)
+    }
+  }
+
   return (
     <>
       <div className={styles.page}>
-        <h1>File Viewer</h1>
+        <h1>File viewer</h1>
         {fileNames ? (
           <div className={styles.fileDisplay}>
 
             {fileNames.map((name) =>
               <div key={name}>
-                <button key={name}>Download {name}</button>
+                <button onClick={() => getFile(name)} key={name}>Download {name}</button>
               </div>
             )}
           </div>
@@ -43,6 +72,12 @@ export default function FileViewer() {
           </div>
         }
       </div>
+
+      //hidden donwload url
+      <a ref={currentLinkRef}
+        style={{ display: "hidden" }}
+      ></a>
+
     </>
   )
 }
