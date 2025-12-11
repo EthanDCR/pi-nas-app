@@ -1,0 +1,4 @@
+// show remaining storage 
+// drag n drop
+// delete files 
+// confirm upload sent on the ui

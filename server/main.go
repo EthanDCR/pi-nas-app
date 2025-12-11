@@ -24,7 +24,7 @@ func main() {
 			panic("error starting server")
 		}
 	}
-	fmt.Printf("Production build found\nListening on port %d\n", PORT)
+	fmt.Printf("Production build found\nListening on port %d\n Access URL: http://192.168.1.175:8080\n", PORT)
 	fmt.Println("=======================================================================")
 	fs := http.FileServer(http.Dir("../client/dist"))
 	router.Handle("/", fs)
