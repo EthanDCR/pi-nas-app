@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"example.com/fileShareServer/api"
 )
@@ -13,11 +14,19 @@ func main() {
 	router.HandleFunc("/api/uploadHandler", api.FileHandler)
 	router.HandleFunc("/api/getFileNamesHandler", api.SendFileNames)
 	router.HandleFunc("/api/sendFileHandler", api.SendFileToClient)
-
-	fmt.Printf("Listening on port %d\n", PORT)
-	fmt.Println("=======================================================================")
-	err := http.ListenAndServe(":8080", router)
+	// check for react prod build dir
+	_, err := os.ReadDir("../client/dist")
 	if err != nil {
-		panic("error starting server")
+		fmt.Printf("Production build not found\nListening on port %d\n", PORT)
+		fmt.Println("=======================================================================")
+		err := http.ListenAndServe(":8080", router)
+		if err != nil {
+			panic("error starting server")
+		}
 	}
+	fmt.Printf("Production build found\nListening on port %d\n", PORT)
+	fmt.Println("=======================================================================")
+	fs := http.FileServer(http.Dir("../client/dist"))
+	router.Handle("/", fs)
+	http.ListenAndServe(":8080", router)
 }
