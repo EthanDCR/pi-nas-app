@@ -6,7 +6,7 @@
   min-height: 60vh;
   min-width: 100vh;
   border-style: solid;
-  border-width: 5px;
+  border-width: 2px;
   border-color: #ff005a;
   border-radius: 10px;
 }
@@ -22,12 +22,19 @@
 
 
 .page button {
+  color: white;
+  background-color: grey;
   font-size: 22px;
   font-weight: 300;
-  border-style: double;
-  border-width: 5px;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 5px;
   border-color: #ff005a;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .page button:hover {
@@ -65,5 +72,18 @@
   padding-right: 30px;
   margin-left: auto;
   font-size: 16px;
+}
 
+.trashButton {
+  font-size: 18px !important;
+  border: none !important;
+  background: none !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 5px !important;
+  cursor: pointer;
+}
+
+.trashButton:hover {
+  opacity: 70% !important;
 }

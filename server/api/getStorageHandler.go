@@ -2,7 +2,6 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/shirou/gopsutil/v3/disk"
@@ -22,10 +21,6 @@ func GetStorageHandler(res http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Total: %v GB\n", usage.Total/1024/1024/1024)
-	fmt.Printf("Used: %v GB\n", usage.Used/1024/1024/1024)
-	fmt.Printf("Free: %v GB\n", usage.Free/1024/1024/1024)
-	fmt.Printf("Used Percent type %T\n", usage.UsedPercent)
 	percentInt := int(usage.UsedPercent)
 	if err != nil {
 		panic("error converting string back to int")

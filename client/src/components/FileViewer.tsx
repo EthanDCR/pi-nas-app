@@ -7,6 +7,7 @@ export default function FileViewer() {
   const currentLinkRef = useRef<HTMLAnchorElement | null>(null)
   const [storageStats, setStorageStats] = useState<any>([])
 
+
   const getFileNames = async () => {
     try {
       const res = await fetch('/api/getFileNamesHandler')
@@ -58,6 +59,16 @@ export default function FileViewer() {
     getDiskData();
   }, []);
 
+  const deleteFile = async (fileName: string) => {
+    const res = await fetch(`/api/deleteFileHandler?fileName=${fileName}`)
+    if (!res.ok) {
+      console.error("error deleting selected file")
+    } else if (res.ok) {
+      console.log(`${fileName} deleted successfully`)
+      getFileNames();
+    }
+  }
+
   return (
     <>
       <div className={styles.page}>
@@ -70,7 +81,6 @@ export default function FileViewer() {
               <li>Free: {storageStats.free} Gb</li>
               <li>Used: {storageStats.used} %</li>
             </ul>}
-
         </div>
 
 
@@ -79,8 +89,9 @@ export default function FileViewer() {
           <div className={styles.fileDisplay}>
 
             {fileNames.map((name) =>
-              <div key={name}>
-                <button onClick={() => getFile(name)} key={name}>Download {name}</button>
+              <div key={name} className={styles.downloadTrash}>
+                <button onClick={() => getFile(name)} >Download {name}</button>
+                <button onClick={() => deleteFile(name)} className={styles.trashButton}>🗑️</button>
               </div>
             )}
           </div>

@@ -4,23 +4,33 @@
   align-items: center;
 }
 
+
+.page button {
+  color: white;
+  background-color: grey;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #ff005a;
+}
+
+.page button:hover {
+  opacity: 50%;
+}
+
+
 .page input {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #ff005a;
   color: white;
 }
 
-.page button {
-  border-style: solid;
-  border-width: 3px;
-  border-radius: 5px;
-  border-color: #ff005a;
+.page input:hover {
+  opacity: 50%;
 }
 
-.page input {
-  border-style: solid;
-  border-width: 3px;
-  border-radius: 5px;
-  border-color: #ff005a;
-}
 
 .fileSent {
   position: absolute;

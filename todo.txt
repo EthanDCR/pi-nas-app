@@ -1,10 +1,17 @@
 // confirm upload sent on the ui (DONE)
 
-// show remaining storage () 
+// show remaining storage (DONE) 
+
+// fix file display names being too long (DONE)
+
+// delete files (IN-PROGRESS) 
 
 // drag n drop
 
-// delete files 
-
 // make the positioning of buttons so that the text cant change the size
 if theres too much text just make it now show the full filename 
+
+// turn the disk stuff into its own component 
+
+// fix weird overflow stuff like trash buttons displaying underneath filnames 
+when there are minimal files on the system 
