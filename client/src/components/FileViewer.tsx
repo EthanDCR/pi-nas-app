@@ -6,6 +6,8 @@ export default function FileViewer() {
   const [fileNames, setFileNames] = useState<string[]>([]);
   const currentLinkRef = useRef<HTMLAnchorElement | null>(null)
   const [storageStats, setStorageStats] = useState<any>([])
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null)
+  const [showFileSentMessage, setShowFileSentMessage] = useState<boolean>(false)
 
 
   const getFileNames = async () => {
@@ -69,12 +71,45 @@ export default function FileViewer() {
     }
   }
 
+  const handleUpload = async () => {
+    const formData = new FormData();
+    if (!uploadedFile) {
+      alert("must upload a file");
+      return;
+    }
+    formData.append('file', uploadedFile);
+
+    try {
+      fetch('/api/uploadHandler', {
+        method: 'POST',
+        body: formData,
+      })
+
+      setShowFileSentMessage(true)
+      setTimeout(() => {
+        setShowFileSentMessage(false)
+      }, 2000);
+      getFileNames();
+    }
+
+    catch (error) {
+      console.error(error)
+      return
+    }
+    console.log("success");
+  }
+
   return (
     <>
       <div className={styles.page}>
 
-        <div className={styles.headerStuff}>
-          <h1>File viewer</h1>
+        <div className={styles.topBar}>
+          <div className={styles.uploadSection}>
+            <input onChange={(e) => setUploadedFile(e.target.files![0])} type="file" />
+            <button onClick={() => handleUpload()}>Upload</button>
+            {showFileSentMessage && <p className={styles.fileSent}>File Sent  ✔ </p>}
+          </div>
+          <h1>NETWORK ATTATCHED STORAGE INTERFACE</h1>
           {storageStats &&
             <ul className={styles.storageUl}>
               <li>Total: {storageStats.total} Gb</li>
@@ -82,8 +117,6 @@ export default function FileViewer() {
               <li>Used: {storageStats.used} %</li>
             </ul>}
         </div>
-
-
 
         {fileNames ? (
           <div className={styles.fileDisplay}>
