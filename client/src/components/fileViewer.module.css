@@ -7,8 +7,8 @@
   min-width: 100vh;
   border-style: solid;
   border-width: 2px;
-  border-color: #ff005a;
-  border-radius: 10px;
+  border-color: #4ade80;
+  border-radius: 0px;
 }
 
 .fileDisplay {
@@ -18,27 +18,35 @@
   padding: 1rem;
 }
 
+.downloadTrash {
+  display: flex;
+  align-items: center;
+}
+
 
 
 
 .page button {
-  color: white;
-  background-color: grey;
-  font-size: 22px;
-  font-weight: 300;
+  color: #4ade80;
+  background-color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 20px;
   border-style: solid;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: #ff005a;
+  border-width: 1px;
+  border-radius: 0px;
+  border-color: #4ade80;
   width: 100%;
   max-width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .page button:hover {
-  opacity: 50%;
+  background-color: #4ade80;
+  color: #111111;
 }
 
 .hidden {
@@ -59,12 +67,13 @@
   display: flex;
   margin-left: auto;
   margin-right: 20px;
-  border-style: dashed;
+  border-style: solid;
   border-width: 1px;
-  border-radius: 2px;
-  border-color: #ff005a;
+  border-radius: 0px;
+  border-color: #4ade80;
   list-style: none;
-  color: white;
+  color: #4ade80;
+  padding: 8px;
 }
 
 .storageUl li {
@@ -75,15 +84,17 @@
 }
 
 .trashButton {
-  font-size: 18px !important;
-  border: none !important;
-  background: none !important;
+  font-size: 16px !important;
+  border: 1px solid #4ade80 !important;
+  background: #1a1a1a !important;
   width: auto !important;
-  max-width: none !important;
-  padding: 5px !important;
+  max-width: 50px !important;
+  padding: 12px !important;
   cursor: pointer;
+  margin-left: 8px;
 }
 
 .trashButton:hover {
-  opacity: 70% !important;
+  background-color: #4ade80 !important;
+  opacity: 100% !important;
 }

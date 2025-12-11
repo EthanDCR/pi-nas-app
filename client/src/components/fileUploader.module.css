@@ -6,33 +6,54 @@
 
 
 .page button {
-  color: white;
-  background-color: grey;
+  color: #4ade80;
+  background-color: #1a1a1a;
   border-style: solid;
-  border-width: 2px;
-  border-radius: 2px;
-  border-color: #ff005a;
+  border-width: 1px;
+  border-radius: 0px;
+  border-color: #4ade80;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .page button:hover {
-  opacity: 50%;
+  background-color: #4ade80;
+  color: #111111;
 }
 
 
-.page input {
+.page input[type="file"] {
+  color: #4ade80;
+  background-color: #1a1a1a;
   border-style: solid;
-  border-width: 2px;
-  border-radius: 2px;
-  border-color: #ff005a;
-  color: white;
+  border-width: 1px;
+  border-radius: 0px;
+  border-color: #4ade80;
+  padding: 12px 20px;
+  cursor: pointer;
 }
 
-.page input:hover {
-  opacity: 50%;
+.page input[type="file"]::-webkit-file-upload-button {
+  color: #4ade80;
+  background-color: #1a1a1a;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0px;
+  border-color: #4ade80;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.page input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #4ade80;
+  color: #111111;
 }
 
 
 .fileSent {
   position: absolute;
   right: 550px;
+  color: #4ade80;
 }
