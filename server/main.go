@@ -14,6 +14,8 @@ func main() {
 	router.HandleFunc("/api/uploadHandler", api.FileHandler)
 	router.HandleFunc("/api/getFileNamesHandler", api.SendFileNames)
 	router.HandleFunc("/api/sendFileHandler", api.SendFileToClient)
+	router.HandleFunc("/api/getStorageHandler", api.GetStorageHandler)
+
 	// check for react prod build dir
 	_, err := os.ReadDir("../client/dist")
 	if err != nil {

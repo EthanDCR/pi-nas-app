@@ -5,14 +5,13 @@ export default function FileViewer() {
 
   const [fileNames, setFileNames] = useState<string[]>([]);
   const currentLinkRef = useRef<HTMLAnchorElement | null>(null)
-
+  const [storageStats, setStorageStats] = useState<any>([])
 
   const getFileNames = async () => {
     try {
       const res = await fetch('/api/getFileNamesHandler')
       const data = await res.json();
       const names = await data.FileNames;
-      console.log(`Found files: ${names}`)
       setFileNames(names)
     } catch (error) {
       console.error(error)
@@ -49,10 +48,33 @@ export default function FileViewer() {
     }
   }
 
+  useEffect(() => {
+    const getDiskData = async () => {
+      const res = await fetch('/api/getStorageHandler')
+      const data = await res.json()
+      console.log(data)
+      setStorageStats(data)
+    }
+    getDiskData();
+  }, []);
+
   return (
     <>
       <div className={styles.page}>
-        <h1>File viewer</h1>
+
+        <div className={styles.headerStuff}>
+          <h1>File viewer</h1>
+          {storageStats &&
+            <ul className={styles.storageUl}>
+              <li>Total: {storageStats.total} Gb</li>
+              <li>Free: {storageStats.free} Gb</li>
+              <li>Used: {storageStats.used} %</li>
+            </ul>}
+
+        </div>
+
+
+
         {fileNames ? (
           <div className={styles.fileDisplay}>
 

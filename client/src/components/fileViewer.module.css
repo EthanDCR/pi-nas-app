@@ -19,10 +19,6 @@
 }
 
 
-.page h1 {
-  justify-self: center;
-}
-
 
 
 .page button {
@@ -40,4 +36,34 @@
 
 .hidden {
   display: none;
+}
+
+.headerStuff {
+  display: flex;
+  align-items: center;
+}
+
+
+.page h1 {
+  margin-left: 400px;
+}
+
+.storageUl {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px;
+  border-style: dashed;
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: #ff005a;
+  list-style: none;
+  color: white;
+}
+
+.storageUl li {
+  padding-left: 5px;
+  padding-right: 30px;
+  margin-left: auto;
+  font-size: 16px;
+
 }
