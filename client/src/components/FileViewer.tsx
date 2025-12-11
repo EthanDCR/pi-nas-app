@@ -7,17 +7,15 @@ export default function FileViewer() {
   const currentLinkRef = useRef<HTMLAnchorElement | null>(null)
 
 
-  const getFileNames = async (fileName: string | null) => {
-    if (!fileName) {
-      try {
-        const res = await fetch('/api/getFileNamesHandler')
-        const data = await res.json();
-        const names = await data.FileNames;
-        console.log(`Found files: ${names}`)
-        setFileNames(names)
-      } catch (error) {
-        console.error(error)
-      }
+  const getFileNames = async () => {
+    try {
+      const res = await fetch('/api/getFileNamesHandler')
+      const data = await res.json();
+      const names = await data.FileNames;
+      console.log(`Found files: ${names}`)
+      setFileNames(names)
+    } catch (error) {
+      console.error(error)
     }
   }
 
@@ -72,12 +70,7 @@ export default function FileViewer() {
           </div>
         }
       </div>
-
-      //hidden donwload url
-      <a ref={currentLinkRef}
-        style={{ display: "hidden" }}
-      ></a>
-
+      <a className={styles.hidden} ref={currentLinkRef}></a>
     </>
   )
 }

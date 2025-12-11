@@ -33,3 +33,11 @@
   border-radius: 5px;
   border-color: #ff005a;
 }
+
+.page button:hover {
+  opacity: 50%;
+}
+
+.hidden {
+  display: none;
+}

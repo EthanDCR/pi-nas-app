@@ -1,5 +1,5 @@
 import styles from "../components/fileUploader.module.css"
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function FileUploader() {
 
@@ -30,7 +30,7 @@ function FileUploader() {
   return (
     <>
       <div className={styles.page}>
-        <input onChange={(e) => setUploadedFile(e.target.files[0])} type="file" />
+        <input onChange={(e) => setUploadedFile(e.target.files![0])} type="file" />
         <button onClick={() => handleUpload()}>Proccess upload</button>
       </div>
     </>

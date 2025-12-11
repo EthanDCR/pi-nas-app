@@ -1,0 +1,32 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+server/.env
+client/.env.local
+
+# Uploads directory (don't commit user files)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Node modules
+node_modules/
+client/node_modules/
+
+# Build outputs
+client/dist/
+client/build/
+
+# Go build outputs
+server/fileShareServer
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
