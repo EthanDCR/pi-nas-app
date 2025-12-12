@@ -11,6 +11,7 @@ export default function FileViewer() {
 
 
   const getFileNames = async () => {
+    console.log("getting file names")
     try {
       const res = await fetch('/api/getFileNamesHandler')
       const data = await res.json();
@@ -67,8 +68,8 @@ export default function FileViewer() {
       console.error("error deleting selected file")
     } else if (res.ok) {
       console.log(`${fileName} deleted successfully`)
-      getFileNames();
     }
+
   }
 
   const handleUpload = async () => {
@@ -85,17 +86,13 @@ export default function FileViewer() {
         body: formData,
       })
 
-      setShowFileSentMessage(true)
-      setTimeout(() => {
-        setShowFileSentMessage(false)
-      }, 2000);
-      getFileNames();
     }
 
     catch (error) {
       console.error(error)
       return
     }
+    getFileNames();
     console.log("success");
   }
 

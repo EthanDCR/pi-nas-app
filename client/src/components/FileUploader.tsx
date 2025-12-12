@@ -23,7 +23,7 @@ function FileUploader() {
         body: formData,
       })
 
-      setShowFileSentMessage(true)
+      setShowFileSentMessage(false)
       setTimeout(() => {
         setShowFileSentMessage(false)
       }, 2000);
