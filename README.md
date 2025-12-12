@@ -9,7 +9,7 @@ currently just writing the bytes sent over http from the ui to the filesystem of
 
 ## why does this exist
 
-no airdrop when you have mixed os's. a decent NAS is expensive.  all my homies cloud storage . plus fun.
+no airdrop when you have mixed os's. a decent NAS is expensive.  all my homies hate cloud storage . plus fun.
 
 ## tech stack
 
@@ -20,8 +20,7 @@ no airdrop when you have mixed os's. a decent NAS is expensive.  all my homies c
 
 ## how to use
 
-just connect to the local network and go to `http://192.168.1.175:8080`
-- upload files to the pi
+just connect to your network and go to `yourIp:8080`
 - view all files that are stored
 - download files
 - delete files
@@ -33,7 +32,7 @@ just connect to the local network and go to `http://192.168.1.175:8080`
 
 ## setup
 
-if you want to run this yourself for some reason:
+if you want to run this
 
 ### backend (go server)
 ```bash
