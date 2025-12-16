@@ -73,6 +73,10 @@ export default function FileViewer() {
   }
 
   const handleUpload = async () => {
+  
+     const audio = new Audio("../public/owen11labs.m4a");
+     audio.play();
+ 
     const formData = new FormData();
     if (!uploadedFile) {
       alert("must upload a file");

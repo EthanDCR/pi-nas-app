@@ -1,5 +1,6 @@
-import styles from "../src/app.module.css"
-import FileViewer from "./components/FileViewer"
+import styles from "../src/app.module.css";
+import FileViewer from "./components/FileViewer";
+
 
 
 function App() {
