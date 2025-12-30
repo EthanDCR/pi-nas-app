@@ -11,6 +11,13 @@ currently just writing the bytes sent over http from the ui to the filesystem of
 
 no airdrop when you have mixed os's. a decent NAS is expensive.  all my homies hate cloud storage . plus fun.
 
+
+
+[alt text](./client/public/readmepic.png)
+
+
+
+
 ## tech stack
 
 - **frontend**: typescript
@@ -25,10 +32,6 @@ just connect to your network and go to `yourIp:8080`
 - download files
 - delete files
 - see how much storage is being used (syscalls to the pi os with go but this works across machines when cross compiled)
-
-
-
-
 
 ## setup
 
