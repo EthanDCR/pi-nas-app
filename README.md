@@ -13,7 +13,7 @@ no airdrop when you have mixed os's. a decent NAS is expensive.  all my homies h
 
 
 
-[alt text](./client/public/readmepic.png)
+![alt text](./client/public/readmepic.png)
 
 
 
